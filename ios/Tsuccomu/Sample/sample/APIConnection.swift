@@ -55,6 +55,8 @@ class APIConnection: NSObject {
     
     
     static func postTsukkomi(xml:NSMutableString,completionHandler:(String,String) -> ()){
+        
+        
         APIConnection.siteInfoWithMethod(.POST, url: API.analysis.url(), params: ["xml":xml], completionHandler: { (json) -> () in
             
             completionHandler(json["tsukkomi"].stringValue,json["id"].stringValue)
