@@ -31,10 +31,9 @@
                                 <rect key="frame" x="0.0" y="427" width="174" height="141"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="174" id="7IR-Ej-Jnl"/>
+                                    <constraint firstAttribute="width" constant="174" id="I0z-SO-2bT"/>
                                     <constraint firstAttribute="height" constant="141" id="dLg-ns-2Gc"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="close:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vcC-ql-z7u"/>
                                 </connections>
