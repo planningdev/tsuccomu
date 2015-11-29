@@ -13,8 +13,8 @@ import SwiftyJSON
 
 
 enum API: String {
-    case all = "/tsukkomi_all" //GET
-    case analysis = "/analysis" //POST
+    case all = "/tsukkomi/tsukkomi_all" //GET
+    case analysis = "/tsukkomi/analysis" //POST
     //case user_photo = "/update2"
     
     func url() -> String {
@@ -55,7 +55,10 @@ class APIConnection: NSObject {
     
     
     static func postTsukkomi(xml:NSMutableString,completionHandler:(String,String) -> ()){
-        APIConnection.siteInfoWithMethod(.POST, url: "", params: ["xml":xml], completionHandler: { (json) -> () in
+        
+        print(API.analysis.url())
+        
+        APIConnection.siteInfoWithMethod(.POST, url: API.analysis.url(), params: ["xml":xml], completionHandler: { (json) -> () in
             
             completionHandler(json["tsukkomi"].stringValue,json["id"].stringValue)
             }) { (error, status) -> () in
