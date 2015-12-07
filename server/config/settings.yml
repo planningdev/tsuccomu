@@ -6,3 +6,7 @@ google_speech:
 voice_text:
   api_key: "v0n92m958evtkw4l"
   file_path: "public/voice/"
+
+movie_voice:
+  file_path: "public/movie/"
+  save_path: "data/"
