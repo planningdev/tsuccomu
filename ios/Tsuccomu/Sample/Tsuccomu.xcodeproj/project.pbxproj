@@ -46,10 +46,11 @@
 		6AE41E80184836030000CF91 /* speak_now_15.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE41E78184836030000CF91 /* speak_now_15.png */; };
 		6AE41E81184836030000CF91 /* speak_now_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE41E79184836030000CF91 /* speak_now_16.png */; };
 		6AFEC60E19496144000C6827 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFEC60D19496144000C6827 /* Images.xcassets */; };
-		A44B87901C0A83C6003D01D2 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B878F1C0A83C6003D01D2 /* Sound.swift */; };
 		A44B87981C0A8EBC003D01D2 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = A44B87971C0A8EBC003D01D2 /* test.wav */; };
 		A44B879C1C0AA8D5003D01D2 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B879B1C0AA8D5003D01D2 /* SettingController.swift */; };
 		A44B879E1C0AB106003D01D2 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44B879D1C0AB106003D01D2 /* Splash.storyboard */; };
+		A48328161C15813000C4D8D7 /* AVAudioPlayerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48328151C15813000C4D8D7 /* AVAudioPlayerUtil.swift */; };
+		A48328181C16E35400C4D8D7 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48328171C16E35400C4D8D7 /* Audio.swift */; };
 		B2C4684EFDF22E8D548FF856 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1CDBAD210AFA3458E3D338 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,10 +106,11 @@
 		6AE41E78184836030000CF91 /* speak_now_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speak_now_15.png; sourceTree = "<group>"; };
 		6AE41E79184836030000CF91 /* speak_now_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speak_now_16.png; sourceTree = "<group>"; };
 		6AFEC60D19496144000C6827 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A44B878F1C0A83C6003D01D2 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		A44B87971C0A8EBC003D01D2 /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test.wav; path = ../Resources/test.wav; sourceTree = "<group>"; };
 		A44B879B1C0AA8D5003D01D2 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		A44B879D1C0AB106003D01D2 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		A48328151C15813000C4D8D7 /* AVAudioPlayerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerUtil.swift; sourceTree = "<group>"; };
+		A48328171C16E35400C4D8D7 /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +177,7 @@
 		2AB7FE161C0962D6002A63B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A44B878F1C0A83C6003D01D2 /* Sound.swift */,
+				A48328171C16E35400C4D8D7 /* Audio.swift */,
 				A44B87971C0A8EBC003D01D2 /* test.wav */,
 			);
 			name = Model;
@@ -186,6 +188,7 @@
 			children = (
 				2AB7FE1E1C096379002A63B6 /* APIConnection.swift */,
 				2AB7FE271C0A245F002A63B6 /* Utility.swift */,
+				A48328151C15813000C4D8D7 /* AVAudioPlayerUtil.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -463,10 +466,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44B87901C0A83C6003D01D2 /* Sound.swift in Sources */,
 				6A6BE3CC18B72B5900F4AECE /* main.m in Sources */,
+				A48328161C15813000C4D8D7 /* AVAudioPlayerUtil.swift in Sources */,
 				2AB7FE1C1C09634D002A63B6 /* Config.swift in Sources */,
 				2AB7FE281C0A245F002A63B6 /* Utility.swift in Sources */,
+				A48328181C16E35400C4D8D7 /* Audio.swift in Sources */,
 				A44B879C1C0AA8D5003D01D2 /* SettingController.swift in Sources */,
 				6AA10C7B18041B84005ACD15 /* ViewController.m in Sources */,
 				2AB7FE1F1C096379002A63B6 /* APIConnection.swift in Sources */,

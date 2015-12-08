@@ -9,6 +9,8 @@
 import UIKit
 
 class Config: NSObject {
-    static let baseURLString = "http://localhost:3000"
+    static let baseURLString = "http://tsukkomu-demo.planningdev.com:3000"
+    static let voice = "/voice" 
     static let api_version = "v1"
+    
 }
