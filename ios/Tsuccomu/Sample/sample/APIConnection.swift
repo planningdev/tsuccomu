@@ -59,7 +59,7 @@ class APIConnection: NSObject {
         
         APIConnection.siteInfoWithMethod(.POST, url: API.analysis.url(), params: ["xml":xml], completionHandler: { (json) -> () in
             
-            completionHandler(json["tsukkomi"].stringValue,json["id"].stringValue)
+            completionHandler(json["tsukkomi"].stringValue,json["voice"].stringValue)
             }) { (error, status) -> () in
                 //errorHandler(status)
         }
@@ -67,7 +67,7 @@ class APIConnection: NSObject {
     }
     
     static func getVoice(completionHandler:([String],String) -> ()){
-        APIConnection.siteInfoWithMethod(.GET , url: "", params: nil, completionHandler: { (json) -> () in
+        APIConnection.siteInfoWithMethod(.GET , url: API.all.url(), params: nil, completionHandler: { (json) -> () in
             var array: [String] = []
             
             for file in json["voice"].arrayValue {
@@ -76,7 +76,7 @@ class APIConnection: NSObject {
             
             
             
-            completionHandler(array,json["base_url"].stringValue)
+            completionHandler(array,Config.baseURLString+Config.voice)
             }) { (error, status) -> () in
                 //errorHandler(error,status)
         }

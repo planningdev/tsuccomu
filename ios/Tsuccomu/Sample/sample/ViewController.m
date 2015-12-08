@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Socket_IO_Client_Swift/Socket_IO_Client_Swift-Swift.h>
 #import "Tsuccomu-swift.h"
+//#import "AVAudioPlayerUtil.swift"
 
 @interface ViewController ()
 <SRClientHelperDelegate>
@@ -20,6 +21,8 @@
     
     NSString *voice_url;
     NSArray *array_;
+    NSDictionary *dict_;
+    Audio *audio_;
 }
 
 - (void)viewDidLoad
@@ -27,40 +30,56 @@
     [super viewDidLoad];
     array_ = [NSArray array];
     
+    
+
+    
+    
     [[_buttonMic imageView] setClipsToBounds:NO];
     [[_buttonMic imageView] setContentMode:UIViewContentModeCenter];
     [self swapButtonImage:SPEECHREC_BUTTON_MODE_NONE];
-//    _mode = SPEECHREC_RECOG_MODE_NONE;
-//    _latestLevel = SPEECHREC_BUTTON_MODE_LEVEL_0;
+    //    _mode = SPEECHREC_RECOG_MODE_NONE;
+    //    _latestLevel = SPEECHREC_BUTTON_MODE_LEVEL_0;
     
     [APIConnection getVoice :^(NSArray *array, NSString* url){
         array_ = array;
         voice_url = url;
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        
+        if(![ud boolForKey:@"AUDIO_EXIST"]){
+            audio_ = [[Audio alloc] init];
+            dict_ = [audio_ Download:array_ voice_url:voice_url];
+            [ud setBool:YES forKey:@"AUDIO_EXIST"];
+        }else{
+            audio_ = [[Audio alloc] init];
+            dict_ = [audio_ MakeDict:array_ voice_url:voice_url];
+        }
     }];
+    
+    
 }
 
 - (IBAction)onButtonMic:(id)sender {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        if(_mode==SPEECHREC_RECOG_MODE_NONE){
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        if(_mode==SPEECHREC_RECOG_MODE_NONE){
     [self start];
-            [self hoge];
-//        }else{
-//            [self stop];
-//        }
-//    });
+    [self hoge];
+    //        }else{
+    //            [self stop];
+    //        }
+    //    });
 }
 
 
 -(void)hoge{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.5*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
-       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-//            _mode = SPEECHREC_RECOG_MODE_NONE;
-//            _latestLevel = SPEECHREC_BUTTON_MODE_LEVEL_0;
-           if(_mode==SPEECHREC_RECOG_MODE_NONE){
-               [self start];
-           }
-           [self hoge];
-           
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+            //            _mode = SPEECHREC_RECOG_MODE_NONE;
+            //            _latestLevel = SPEECHREC_BUTTON_MODE_LEVEL_0;
+            if(_mode==SPEECHREC_RECOG_MODE_NONE){
+                [self start];
+            }
+            [self hoge];
+            
         });
     });
 }
@@ -76,7 +95,7 @@
         if([self isResultXml]){
             if([NSMutableString stringWithString:[nbestObj serialize]]){
                 serializedString = [NSMutableString stringWithString:[nbestObj serialize]];
-
+                
                 
             }else{
                 serializedString = [NSMutableString stringWithString:@"(結果なし)"];
@@ -98,20 +117,27 @@
     }
     NSLog(@"%@",serializedString);
     [APIConnection postTsukkomi:serializedString  completionHandler:^(NSString *comment, NSString* filename){
-       
+        
         self.tsukkomiLabel.text = comment;
         self.tsukkomiLabel.hidden = NO;
         self.caraImage.image = [UIImage imageNamed:@"tsuccomi_action_fix"];
-       
+        //NSLog(@"%@",filename);
+        NSURL *url = [NSURL URLWithString:[dict_ objectForKey:filename]];
+        NSLog(@"%@",dict_);
+        NSLog(@"%@",url);
+        [AVAudioPlayerUtil setValue:url];
+        [AVAudioPlayerUtil play];
+        
+        
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
             
             self.tsukkomiLabel.hidden = YES;
             self.caraImage.image = [UIImage imageNamed:@"tsuccomi_wait_fix"];
         });
-//
+        //
         
-//        Sound *sound = [[Sound alloc] init];
-//        [sound playSound:filename type:@"wav"];
+        
         
     }];
     
@@ -132,8 +158,8 @@
 - (void)srcDidComplete:(NSError*)error
 {
     if(error){
-        NSString* description = [error localizedDescription];
-        NSString* reason = [error localizedFailureReason];
+//        NSString* description = [error localizedDescription];
+//        NSString* reason = [error localizedFailureReason];
         //[self showAlert:reason title:description];
     }
     [self swapButtonImage:SPEECHREC_BUTTON_MODE_NONE];
@@ -192,13 +218,13 @@
                     prefString = [[NSUserDefaults standardUserDefaults] stringForKey:key];
                     if(prefString&&[prefString length]>0){
                         [_settings setObject:[NSNumber numberWithBool:[[NSUserDefaults standardUserDefaults] boolForKey:key]]
-                                         forKey:key];
+                                      forKey:key];
                         break;
                     }
                 }
                 if(defaultValue){
                     [_settings setObject:[NSNumber numberWithBool:[defaultValue boolValue]]
-                                     forKey:key];
+                                  forKey:key];
                 }
                 break;
             case SPEECHREC_SETTING_TYPE_INTEGER:
@@ -206,13 +232,13 @@
                     prefString = [[NSUserDefaults standardUserDefaults] stringForKey:key];
                     if(prefString&&[prefString length]>0){
                         [_settings setObject:[NSNumber numberWithInteger:[[NSUserDefaults standardUserDefaults] integerForKey:key]]
-                                         forKey:key];
+                                      forKey:key];
                         break;
                     }
                 }
                 if(defaultValue){
                     [_settings setObject:[NSNumber numberWithInteger:[defaultValue integerValue]]
-                                     forKey:key];
+                                  forKey:key];
                 }
                 break;
             case SPEECHREC_SETTING_TYPE_REAL:
@@ -220,24 +246,24 @@
                     prefString = [[NSUserDefaults standardUserDefaults] stringForKey:key];
                     if(prefString&&[prefString length]>0){
                         [_settings setObject:[NSNumber numberWithDouble:[[NSUserDefaults standardUserDefaults] doubleForKey:key]]
-                                         forKey:key];
+                                      forKey:key];
                         break;
                     }
                 }
                 if(defaultValue){
                     [_settings setObject:[NSNumber numberWithDouble:[defaultValue doubleValue]]
-                                     forKey:key];
+                                  forKey:key];
                 }
                 break;
             case SPEECHREC_SETTING_TYPE_STRING:
             {
                 if(preferenceValue){
                     [_settings setObject:[[NSUserDefaults standardUserDefaults] stringForKey:key]
-                                     forKey:key];
+                                  forKey:key];
                 }else{
                     if(defaultValue&&[defaultValue length]>0){
                         [_settings setObject:defaultValue
-                                         forKey:key];
+                                      forKey:key];
                     }
                 }
                 break;
@@ -416,25 +442,25 @@
 {
     if ([UIAlertController class]) {
         UIAlertController* alertController = [UIAlertController alertControllerWithTitle:title
-                                                                       message:message
-                                                                preferredStyle:UIAlertControllerStyleAlert];
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
-                                                  style:UIAlertActionStyleDefault
-                                                handler:nil]];
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
-//            [alertController dismissViewControllerAnimated:YES completion:nil];
-//        });
+        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+        //            [alertController dismissViewControllerAnimated:YES completion:nil];
+        //        });
     }else{
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-//                                                            message:message
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"OK"
-//                                                  otherButtonTitles:nil];
+        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+        //                                                            message:message
+        //                                                           delegate:nil
+        //                                                  cancelButtonTitle:@"OK"
+        //                                                  otherButtonTitles:nil];
         //[alertView show];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
-//            [alertView dismissWithClickedButtonIndex:0 animated:YES];
-//        });
+        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3.0*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+        //            [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        //        });
     }
     //NSLog(@"%@ - %@",title,message);
 }
@@ -461,9 +487,7 @@
 - (IBAction)close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    //Sound *sound = [[Sound alloc] init];
-//    Sound *sound = [[Sound alloc] init];
-//    [sound playSound:@"test" type:@"wav"];
+    
     
 }
 
