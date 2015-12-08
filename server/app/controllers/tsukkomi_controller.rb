@@ -13,12 +13,12 @@ end
     xml_string = params[:xml]
     xml = Hash.from_xml(xml_string)
     wards = xml["Nbest"]["Sentence"]["Word"]
-    
+   
     boke_array = Array.new
 
-    wards.each do |ward|
-      next if ward["Label"].nil?
+    wards.each do |ward| 
       label = ward["Label"]
+      next if label.nil? || label.length == 1
       boke_temp = Array.new
       
       # 渡されたデータがボケかどうかDBから探す
