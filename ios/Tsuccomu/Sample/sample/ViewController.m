@@ -92,7 +92,7 @@
     NSMutableString* serializedString = nil;
     if([decodedObj isMemberOfClass:[SRNbest class]]){
         SRNbest* nbestObj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if([self isResultXml]){
+        if([self isResultXml] && nbestObj.serialize != nil){
             if([NSMutableString stringWithString:[nbestObj serialize]]){
                 serializedString = [NSMutableString stringWithString:[nbestObj serialize]];
                 
@@ -123,8 +123,8 @@
         self.caraImage.image = [UIImage imageNamed:@"tsuccomi_action_fix"];
         //NSLog(@"%@",filename);
         NSURL *url = [NSURL URLWithString:[dict_ objectForKey:filename]];
-        NSLog(@"%@",dict_);
-        NSLog(@"%@",url);
+//        NSLog(@"%@",dict_);
+//        NSLog(@"%@",url);
         [AVAudioPlayerUtil setValue:url];
         [AVAudioPlayerUtil play];
         
