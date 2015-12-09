@@ -104,7 +104,7 @@
     NSMutableString* serializedString = nil;
     if([decodedObj isMemberOfClass:[SRNbest class]]){
         SRNbest* nbestObj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        if([self isResultXml]){
+        if([self isResultXml] && nbestObj.serialize != nil){
             if([NSMutableString stringWithString:[nbestObj serialize]]){
                 serializedString = [NSMutableString stringWithString:[nbestObj serialize]];
                 
@@ -144,7 +144,6 @@
             return mutableAttributedString;
         }];
         NSURL *url = [NSURL URLWithString:[dict_ objectForKey:filename]];
-
         [AVAudioPlayerUtil setValue:url];
         [AVAudioPlayerUtil play];
         
