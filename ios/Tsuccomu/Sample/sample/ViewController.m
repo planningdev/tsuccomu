@@ -43,6 +43,9 @@
     
     CGFloat angle = M_PI/2;
     tateLabel.transform = CGAffineTransformMakeRotation(angle);
+    
+    [self.caraImage addSubview:tateLabel];
+    
 
     
     
@@ -134,15 +137,18 @@
         //self.tsukkomiLabel.text = comment;
         //self.tsukkomiLabel.hidden = NO;
         self.caraImage.image = [UIImage imageNamed:@"tsuccomi_action_fix"];
-        [self.caraImage addSubview:tateLabel];
+        tateLabel.hidden = NO;
         [tateLabel setText:comment afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
             
             //縦文字に変更
             [mutableAttributedString addAttribute:(NSString *)kCTVerticalFormsAttributeName value:[NSNumber numberWithBool:YES] range:NSMakeRange(0, [mutableAttributedString length])];
             
             
+            
             return mutableAttributedString;
         }];
+        
+    
         NSURL *url = [NSURL URLWithString:[dict_ objectForKey:filename]];
         [AVAudioPlayerUtil setValue:url];
         [AVAudioPlayerUtil play];
@@ -152,7 +158,8 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0*NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
             
             //self.tsukkomiLabel.hidden = YES;
-            [tateLabel removeFromSuperview];
+            //[tateLabel removeFromSuperview];
+            tateLabel.hidden = YES;
             self.caraImage.image = [UIImage imageNamed:@"tsuccomi_wait_fix"];
         });
         //
