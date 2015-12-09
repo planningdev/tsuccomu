@@ -25,6 +25,7 @@
     NSArray *array_;
     NSDictionary *dict_;
     Audio *audio_;
+    AVAudioPlayerUtil *util;
     TTTAttributedLabel *tateLabel;
 }
 
@@ -150,8 +151,10 @@
         
     
         NSURL *url = [NSURL URLWithString:[dict_ objectForKey:filename]];
-        [AVAudioPlayerUtil setValue:url];
-        [AVAudioPlayerUtil play];
+        util = [[AVAudioPlayerUtil alloc] init];
+        
+        [util setURL:url];
+        [util play];
         
         
         
