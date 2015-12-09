@@ -11,10 +11,10 @@ import AVFoundation
 
 class AVAudioPlayerUtil:NSObject {
     
-    static var audioPlayer:AVAudioPlayer = AVAudioPlayer();
-    static var sound_data:NSURL = NSURL();
+    var audioPlayer:AVAudioPlayer = AVAudioPlayer();
+    var sound_data:NSURL = NSURL();
     
-    static func setValue(nsurl:NSURL){
+    func setURL(nsurl:NSURL){
         
         
         self.sound_data = nsurl;
@@ -33,7 +33,7 @@ class AVAudioPlayerUtil:NSObject {
 
     }
     
-    static func play(){
+    func play(){
         self.audioPlayer.play();
         //sleep(1)
     }

@@ -38,7 +38,7 @@ class Audio:NSObject,NSURLSessionDownloadDelegate{
             myTask.resume()
             
             let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-
+            
             dict.setValue("\(documentsPath)/\(name)", forKey: name)
         }
         
@@ -57,8 +57,23 @@ class Audio:NSObject,NSURLSessionDownloadDelegate{
         }
         
         return dict
-
+        
     }
+    
+    
+//    func Delete(array:NSArray,voice_url:NSString){
+//        
+//        for arr in array{
+//            let name = arr as! String
+//            let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+//            let manager = NSFileManager()
+//            do{
+//                try manager.removeItemAtPath("\(documentsPath)/\(name)")
+//            }catch let error as NSError{
+//                print(error)
+//            }
+//        }
+//    }
     /*
     ダウンロード終了時に呼び出されるデリゲート
     */
