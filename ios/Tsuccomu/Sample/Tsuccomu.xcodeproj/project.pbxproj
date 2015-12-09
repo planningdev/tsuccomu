@@ -51,6 +51,8 @@
 		A44B879E1C0AB106003D01D2 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44B879D1C0AB106003D01D2 /* Splash.storyboard */; };
 		A48328161C15813000C4D8D7 /* AVAudioPlayerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48328151C15813000C4D8D7 /* AVAudioPlayerUtil.swift */; };
 		A48328181C16E35400C4D8D7 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48328171C16E35400C4D8D7 /* Audio.swift */; };
+		A4FD53AD1C1863B80095469F /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD53AC1C1863B80095469F /* TTTAttributedLabel.m */; };
+		A4FD53B11C18788D0095469F /* FOT-KurokaneStd-EB.otf in Resources */ = {isa = PBXBuildFile; fileRef = A4FD53B01C18788D0095469F /* FOT-KurokaneStd-EB.otf */; };
 		B2C4684EFDF22E8D548FF856 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1CDBAD210AFA3458E3D338 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,9 @@
 		A44B879D1C0AB106003D01D2 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		A48328151C15813000C4D8D7 /* AVAudioPlayerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerUtil.swift; sourceTree = "<group>"; };
 		A48328171C16E35400C4D8D7 /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		A4FD53AB1C1863B80095469F /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		A4FD53AC1C1863B80095469F /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		A4FD53B01C18788D0095469F /* FOT-KurokaneStd-EB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FOT-KurokaneStd-EB.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +152,7 @@
 			children = (
 				6AA10C7018041B84005ACD15 /* AppDelegate.h */,
 				6AA10C7118041B84005ACD15 /* AppDelegate.m */,
+				A4FD53B01C18788D0095469F /* FOT-KurokaneStd-EB.otf */,
 				2AB7FE141C0962CC002A63B6 /* Controller */,
 				2AB7FE191C096311002A63B6 /* Storyboards */,
 				2AB7FE181C0962DD002A63B6 /* Config */,
@@ -189,6 +195,8 @@
 				2AB7FE1E1C096379002A63B6 /* APIConnection.swift */,
 				2AB7FE271C0A245F002A63B6 /* Utility.swift */,
 				A48328151C15813000C4D8D7 /* AVAudioPlayerUtil.swift */,
+				A4FD53AB1C1863B80095469F /* TTTAttributedLabel.h */,
+				A4FD53AC1C1863B80095469F /* TTTAttributedLabel.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -395,6 +403,7 @@
 				6AD169E71843560100FA3B95 /* recognizing.png in Resources */,
 				6AD169EF1843560100FA3B95 /* speak_now_7.png in Resources */,
 				6AD169F21843571000FA3B95 /* none.png in Resources */,
+				A4FD53B11C18788D0095469F /* FOT-KurokaneStd-EB.otf in Resources */,
 				6AE41E7B184836030000CF91 /* speak_now_10.png in Resources */,
 				6AD169EB1843560100FA3B95 /* speak_now_3.png in Resources */,
 				6A781C93194AE72E00E29272 /* sdk_sample.png in Resources */,
@@ -475,6 +484,7 @@
 				6AA10C7B18041B84005ACD15 /* ViewController.m in Sources */,
 				2AB7FE1F1C096379002A63B6 /* APIConnection.swift in Sources */,
 				6AA10C7218041B84005ACD15 /* AppDelegate.m in Sources */,
+				A4FD53AD1C1863B80095469F /* TTTAttributedLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

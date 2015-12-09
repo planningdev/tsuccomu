@@ -7,11 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "TTTAttributedLabel.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[TTTAttributedLabel appearance] setFont:[UIFont fontWithName:@"KurokaneStd-EB" size:60]];
     return YES;
 }
 
