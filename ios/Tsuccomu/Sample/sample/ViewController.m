@@ -25,6 +25,7 @@
     NSArray *array_;
     NSDictionary *dict_;
     Audio *audio_;
+    AVAudioPlayerUtil *util;
     TTTAttributedLabel *tateLabel;
 }
 
@@ -38,7 +39,8 @@
     tateLabel.adjustsFontSizeToFitWidth = YES;
     tateLabel.textColor = [UIColor blackColor];
     tateLabel.numberOfLines = 0;
-    tateLabel.font = [UIFont systemFontOfSize:40];
+    //tateLabel.font = [UIFont systemFontOfSize:40];
+    tateLabel.font = [UIFont fontWithName:@"KurokaneStd-EB" size:40];
     tateLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     
     CGFloat angle = M_PI/2;
@@ -150,8 +152,10 @@
         
     
         NSURL *url = [NSURL URLWithString:[dict_ objectForKey:filename]];
-        [AVAudioPlayerUtil setValue:url];
-        [AVAudioPlayerUtil play];
+        util = [[AVAudioPlayerUtil alloc] init];
+        
+        [util setURL:url];
+        [util play];
         
         
         
