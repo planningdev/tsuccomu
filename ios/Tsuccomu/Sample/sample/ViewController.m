@@ -39,7 +39,8 @@
     tateLabel.adjustsFontSizeToFitWidth = YES;
     tateLabel.textColor = [UIColor blackColor];
     tateLabel.numberOfLines = 0;
-    tateLabel.font = [UIFont systemFontOfSize:40];
+    //tateLabel.font = [UIFont systemFontOfSize:40];
+    tateLabel.font = [UIFont fontWithName:@"KurokaneStd-EB" size:40];
     tateLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
     
     CGFloat angle = M_PI/2;
