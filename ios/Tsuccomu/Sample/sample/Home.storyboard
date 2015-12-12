@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nZs-54-0FU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nZs-54-0FU">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,43 +18,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tsuccomi_home_fix" translatesAutoresizingMaskIntoConstraints="NO" id="ghb-Gh-nai">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqe-Ei-eho">
                                 <rect key="frame" x="0.0" y="420" width="600" height="180"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZU-jH-4OX">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZU-jH-4OX">
+                                        <rect key="frame" x="16" y="0.0" width="284" height="157"/>
                                         <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="selected" image="ui_Tsuccomu_01"/>
+                                        <state key="highlighted" image="ui_Tsuccomu_01"/>
                                         <connections>
                                             <segue destination="OwR-aj-fnG" kind="presentation" modalTransitionStyle="crossDissolve" id="35l-dg-EUh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUL-ma-v9N">
-                                        <rect key="frame" x="300" y="0.0" width="300" height="180"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUL-ma-v9N">
+                                        <rect key="frame" x="300" y="0.0" width="283" height="157"/>
                                         <animations/>
+                                        <state key="selected" image="ui_Tsuccomu_01"/>
+                                        <state key="highlighted" image="ui_Tsuccomu_01"/>
                                         <connections>
                                             <segue destination="jcm-Gm-9sJ" kind="presentation" modalTransitionStyle="crossDissolve" id="s1i-0N-nTJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="aZU-jH-4OX" firstAttribute="leading" secondItem="Oqe-Ei-eho" secondAttribute="leading" id="6u9-Qu-tL2"/>
+                                    <constraint firstItem="aZU-jH-4OX" firstAttribute="leading" secondItem="Oqe-Ei-eho" secondAttribute="leading" constant="16" id="6u9-Qu-tL2"/>
                                     <constraint firstItem="eUL-ma-v9N" firstAttribute="top" secondItem="Oqe-Ei-eho" secondAttribute="top" id="BKf-QR-S0y"/>
-                                    <constraint firstAttribute="bottom" secondItem="aZU-jH-4OX" secondAttribute="bottom" id="CGT-KM-d5E"/>
-                                    <constraint firstAttribute="trailing" secondItem="eUL-ma-v9N" secondAttribute="trailing" id="EJz-Jr-E6d"/>
+                                    <constraint firstAttribute="bottom" secondItem="aZU-jH-4OX" secondAttribute="bottom" constant="23" id="CGT-KM-d5E"/>
+                                    <constraint firstAttribute="trailing" secondItem="eUL-ma-v9N" secondAttribute="trailing" constant="17" id="EJz-Jr-E6d"/>
                                     <constraint firstItem="eUL-ma-v9N" firstAttribute="height" secondItem="aZU-jH-4OX" secondAttribute="height" id="EqJ-rY-jEo"/>
                                     <constraint firstItem="eUL-ma-v9N" firstAttribute="leading" secondItem="aZU-jH-4OX" secondAttribute="trailing" id="Oq2-BN-748"/>
-                                    <constraint firstItem="eUL-ma-v9N" firstAttribute="width" secondItem="aZU-jH-4OX" secondAttribute="width" id="adZ-Yn-VtQ"/>
+                                    <constraint firstItem="eUL-ma-v9N" firstAttribute="width" secondItem="aZU-jH-4OX" secondAttribute="width" constant="-1" id="adZ-Yn-VtQ"/>
                                     <constraint firstAttribute="height" constant="180" id="g4S-2l-Whw"/>
-                                    <constraint firstAttribute="bottom" secondItem="eUL-ma-v9N" secondAttribute="bottom" id="iYV-xb-2nv"/>
+                                    <constraint firstAttribute="bottom" secondItem="eUL-ma-v9N" secondAttribute="bottom" constant="23" id="iYV-xb-2nv"/>
                                     <constraint firstItem="aZU-jH-4OX" firstAttribute="top" secondItem="Oqe-Ei-eho" secondAttribute="top" id="ktK-jP-iEv"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tsuccomi_home_fix" translatesAutoresizingMaskIntoConstraints="NO" id="ghb-Gh-nai">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,18 +105,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zj-Nc-CPU">
-                                <rect key="frame" x="0.0" y="419" width="141" height="181"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="181" id="g34-zN-stH"/>
-                                    <constraint firstAttribute="width" constant="141" id="rSM-78-Bgb"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="back:" destination="jcm-Gm-9sJ" eventType="touchUpInside" id="z5g-mw-eaw"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tsuccomi_settings_fix" translatesAutoresizingMaskIntoConstraints="NO" id="0MG-nd-zio">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
@@ -119,6 +112,19 @@
                                     <constraint firstAttribute="width" secondItem="0MG-nd-zio" secondAttribute="height" multiplier="1:1" id="550-Nc-8UR"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zj-Nc-CPU">
+                                <rect key="frame" x="20" y="419" width="161" height="181"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="181" id="g34-zN-stH"/>
+                                    <constraint firstAttribute="width" constant="161" id="rSM-78-Bgb"/>
+                                </constraints>
+                                <state key="selected" image="ui_Tsuccomu_01"/>
+                                <state key="highlighted" image="ui_Tsuccomu_01"/>
+                                <connections>
+                                    <action selector="back:" destination="jcm-Gm-9sJ" eventType="touchUpInside" id="z5g-mw-eaw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,5 +146,6 @@
     <resources>
         <image name="tsuccomi_home_fix" width="2048" height="1536"/>
         <image name="tsuccomi_settings_fix" width="2048" height="1536"/>
+        <image name="ui_Tsuccomu_01" width="1818" height="759"/>
     </resources>
 </document>
